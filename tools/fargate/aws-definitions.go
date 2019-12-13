@@ -37,10 +37,16 @@ type ContainerDefinition struct {
 	CPU              string           `json:"Cpu,omitempty"`
 	Memory           string           `json:"Memory,omitempty"`
 	Image            string           `json:"Image,omitempty"`
-	HealthCheck      HealthCheck      `json:"HealthCheck,omitempty"`
+	HealthCheck      *HealthCheck     `json:"HealthCheck,omitempty"`
 	LogConfiguration LogConfiguration `json:"LogConfiguration"`
 	PortMappings     []PortMapping    `json:"PortMappings,omitempty"`
 	Environment      []EnvironmentVar `json:"Environment,omitempty"`
+
+	RepositoryCredentials *Credentials `json:"RepositoryCredentials,omitempty"`
+}
+
+type Credentials struct {
+	CredentialsParameters string `json:"CredentialsParameter,omitempty"`
 }
 
 //HealthCheck .
